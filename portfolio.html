@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shagun Kaushik | Video Editor & AI Content Producer</title>
+<meta name="description" content="Shagun Kaushik: video editor, colorist, sound engineer and AI content producer. Five years of freelance work for YouTube channels, brands and NGOs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0a0a;--panel:#151515;--line:#262626;--text:#f2f2f2;--mute:#9a9a9a;--accent:#e8924a}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--text);font:400 1.02rem/1.65 Inter,system-ui,sans-serif}
+h1,h2,h3{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;line-height:.95;letter-spacing:.02em}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 1.5rem}
+section{padding:6rem 0;border-top:1px solid var(--line)}
+h2{font-size:clamp(3rem,7vw,5.2rem);margin-bottom:1rem}
+.lead{max-width:44ch;color:#cfcfcf;font-size:1.15rem}
+.head{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:3rem}
+
+nav{position:sticky;top:0;z-index:5;background:rgba(10,10,10,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:60px}
+nav strong{font:400 1.6rem 'Bebas Neue',sans-serif;letter-spacing:.06em}
+nav strong a{text-decoration:none}
+nav ul{display:flex;gap:1.6rem;list-style:none;font-size:.9rem;color:var(--mute)}
+nav ul a{text-decoration:none}nav ul a:hover{color:var(--accent)}
+
+.hero{border:0;padding:6rem 0 4rem;background:radial-gradient(ellipse 45% 80% at 85% 0,rgba(255,255,255,.09),transparent 70%),radial-gradient(circle at 90% 85%,rgba(232,146,74,.14),transparent 40%)}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:end}
+.hero h1{font-size:clamp(5rem,13vw,10.5rem);margin-bottom:1.5rem}
+.hero .role{color:var(--accent);font-weight:600;font-size:1.05rem;margin-bottom:1rem}
+.hero p.lead{margin-bottom:2rem}
+.btns{display:flex;gap:.8rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:.6rem;background:var(--accent);color:#111;font-weight:600;padding:.85rem 1.5rem;border:0;border-radius:3px;text-decoration:none}
+.btn:hover{background:#f2a468}
+.btn.ghost{background:none;color:var(--text);border:1px solid #444}.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.reel{position:relative;aspect-ratio:16/10;border:1px solid var(--line);border-radius:4px;background:linear-gradient(135deg,#1b1b1b,#0d0d0d);display:grid;place-items:center;text-align:center}
+.reel span{display:block;font:400 2.2rem 'Bebas Neue',sans-serif;margin-top:.8rem}
+.play{width:68px;height:68px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin:auto;border:0}
+.play::after{content:"";border-left:20px solid #111;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:5rem;border-top:1px solid var(--line)}
+.stats div{padding:1.6rem 1rem 0 0}
+.stats b{display:block;font:400 3.4rem 'Bebas Neue',sans-serif;color:var(--accent);line-height:1}
+.stats span{color:var(--mute);font-size:.92rem}
+
+.split{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(300px,1fr);gap:3rem;align-items:start}
+.panel{position:sticky;top:84px;border-left:2px solid var(--accent);padding:.3rem 0 .3rem 2rem;min-height:340px}
+.panel small{color:var(--accent);font-weight:600;font-size:.85rem}
+.panel h3{font-size:2.4rem;line-height:1;margin:.5rem 0 .6rem;overflow-wrap:anywhere}
+.panel .cat{color:var(--mute);font-size:.92rem}
+.panel h4{font:600 .82rem Inter,sans-serif;color:var(--mute);margin:1.8rem 0 .6rem}
+.panel ul{list-style:none}
+.panel li{padding:.55rem 0;border-bottom:1px solid var(--line);color:#dcdcdc}
+.panel li:last-child{border-bottom:0}
+.panel .btn{margin-top:1.8rem}
+.panel>*{animation:fade .35s both}
+@keyframes fade{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+@media(max-width:900px){.split{grid-template-columns:1fr;gap:2rem}.panel{position:static;order:-1;min-height:0}}
+@media(prefers-reduced-motion:reduce){.vid,.vid img,.panel>*{transition:none;animation:none}}
+.also{margin-top:4rem;padding-top:2rem;border-top:1px solid var(--line)}
+.also ul{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.also li{border:1px solid var(--line);background:var(--panel);padding:.45rem 1rem;border-radius:100px;font-size:.95rem}
+
+.cols{display:grid;gap:1px;background:var(--line);grid-template-columns:repeat(auto-fit,minmax(300px,1fr));border:1px solid var(--line)}
+.cols article{background:var(--bg);padding:2rem}
+.cols h3{font-size:1.8rem;margin-bottom:.6rem}.cols p{color:var(--mute);font-size:.97rem}
+
+.timeline{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.timeline li{position:relative;padding-top:2rem;border-top:2px solid var(--line)}
+.timeline li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:var(--accent)}
+.timeline time{display:block;font-weight:600;font-size:1.25rem;margin-bottom:.6rem}
+.timeline h3{font-size:1.6rem;margin-bottom:.4rem}.timeline p{color:var(--mute);font-size:.95rem}
+
+.stack{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem}
+.stack span{border:1px solid var(--line);padding:.45rem 1rem;border-radius:100px;background:var(--panel);font-size:.95rem}
+.pipe{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1rem;counter-reset:s}
+.pipe li{counter-increment:s;padding:1.2rem;background:var(--panel);border-radius:3px}
+.pipe li::before{content:counter(s);font:400 1.1rem 'Bebas Neue',sans-serif;color:var(--accent)}
+.pipe h3{font-size:1.7rem;margin:.2rem 0 .4rem}.pipe p{color:var(--mute);font-size:.92rem}
+
+.contact dl{display:grid;gap:1.3rem;margin:2rem 0}
+.contact dt{color:var(--accent);font-size:.82rem;font-weight:600}
+.contact dd{font-size:1.2rem}.contact dd a{text-decoration:none;border-bottom:1px solid var(--accent)}
+footer{padding:2rem 0;border-top:1px solid var(--line);color:var(--mute);font-size:.85rem}
+
+dialog{margin:auto;width:min(960px,94vw);border:1px solid var(--line);background:#000;padding:0;border-radius:4px}
+dialog::backdrop{background:rgba(0,0,0,.85)}
+dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
+.close{position:absolute;right:.6rem;top:.6rem;z-index:2;background:rgba(0,0,0,.7);border:1px solid #555;border-radius:3px;padding:.2rem .7rem}
+
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.hero .wrap>div:first-child>*{animation:rise .8s both}.hero h1{animation-delay:.08s}.hero .lead{animation-delay:.2s}.hero .btns{animation-delay:.3s}
+@media(max-width:820px){.hero .wrap{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}nav ul{display:none}section{padding:4rem 0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero .wrap>div>*{animation:none}.vid img{transition:none}}
+.stage{position:relative;aspect-ratio:16/9;background:#111;border-radius:4px;overflow:hidden}
+.stage::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 55%,rgba(0,0,0,.75));pointer-events:none;z-index:1}
+.slide{position:absolute;inset:0;width:100%;border:0;background:none;padding:0}
+.slide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .9s}
+.slide img.show{opacity:1}.slide img.kb{animation:kb 7s linear forwards}
+@keyframes kb{to{transform:scale(1.08)}}
+.slide i{position:absolute;z-index:2;left:50%;top:50%;width:64px;height:64px;margin:-32px 0 0 -32px;border-radius:50%;background:rgba(232,146,74,.95);opacity:0;transform:scale(.7);transition:.3s}
+.slide i::after{content:"";position:absolute;left:25px;top:19px;border-left:19px solid #111;border-top:13px solid transparent;border-bottom:13px solid transparent}
+.stage:hover .slide i{opacity:1;transform:none}
+.tag{position:absolute;z-index:2;left:1.1rem;bottom:1.2rem;font-weight:600;font-size:.95rem;pointer-events:none}
+.count{position:absolute;z-index:2;right:1.1rem;top:.9rem;font:400 1.5rem 'Bebas Neue',sans-serif;letter-spacing:.06em;pointer-events:none}
+.nav{position:absolute;z-index:3;width:42px;height:42px;border-radius:50%;background:rgba(10,10,10,.65);border:1px solid #555;font-size:1.4rem;line-height:1;transition:.2s}
+.nav:hover{background:var(--accent);color:#111;border-color:var(--accent)}
+.prev{left:.8rem;top:50%;margin-top:-21px}.next{right:.8rem;top:50%;margin-top:-21px}
+.pp{right:.8rem;bottom:.9rem;width:34px;height:34px;font-size:.7rem}
+.bar{position:absolute;z-index:3;left:0;right:0;bottom:0;height:3px;background:rgba(255,255,255,.15)}
+.bar b{display:block;height:100%;width:0;background:var(--accent)}
+.strip{position:relative;display:flex;gap:.5rem;overflow-x:auto;padding:.9rem 0 .5rem;scrollbar-width:thin}
+.mini{flex:0 0 96px;aspect-ratio:16/9;border:0;padding:0;border-radius:2px;overflow:hidden;opacity:.45;outline:2px solid transparent;outline-offset:1px;transition:opacity .2s,outline-color .2s}
+.mini:hover{opacity:.85}.mini.on{opacity:1;outline-color:var(--accent)}
+.mini img{width:100%;height:100%;object-fit:cover;display:block}
+.panel .btns{margin-top:1.8rem}.panel .btns .btn{margin-top:0}
+
+/* scroll animations */
+.js .cols article{clip-path:inset(0 100% 0 0);transition:clip-path .9s cubic-bezier(.2,.7,.2,1) calc(var(--i,0)*.13s)}
+.js .cols.in article{clip-path:inset(0)}
+.cols article{position:relative}
+.cols article::before{content:"";position:absolute;left:0;top:0;height:2px;width:0;background:var(--accent);transition:width .9s ease calc(var(--i,0)*.13s + .6s)}
+.cols.in article::before{width:100%}
+.cols article h3{transition:color .25s}.cols article:hover h3{color:var(--accent)}
+.js .stack span{opacity:0;transform:scale(.55);transition:opacity .4s,transform .55s cubic-bezier(.3,1.7,.5,1);transition-delay:calc(var(--i,0)*.09s)}
+.js .stack.in span{opacity:1;transform:none}
+.pipe{position:relative}
+.js .pipe::before{content:"";position:absolute;top:-10px;left:0;height:2px;width:0;background:var(--accent);transition:width 2.4s linear}
+.js .pipe.in::before{width:100%}
+.js .pipe li{opacity:.25;transform:translateY(16px);border-top:2px solid var(--line);transition:opacity .6s,transform .6s,border-color .6s;transition-delay:calc(var(--i,0)*.45s)}
+.js .pipe.in li{opacity:1;transform:none;border-top-color:var(--accent)}
+.js .timeline{position:relative}
+.js .timeline::before,.js .timeline::after{content:"";position:absolute;top:0;left:0;height:2px}
+.js .timeline::before{right:0;background:var(--line)}
+.js .timeline::after{width:0;background:var(--accent);transition:width 3.6s linear .2s}
+.js .timeline.in::after{width:100%}
+.js .timeline li{border-top:0}
+.js .timeline li::before{transform:scale(0);transition:transform .5s cubic-bezier(.3,1.7,.5,1) calc(var(--i,0)*.9s + .3s)}
+.js .timeline.in li::before{transform:scale(1)}
+.js .timeline li::after{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;border:2px solid var(--accent);opacity:0}
+.js .timeline.in li::after{animation:ping 1.2s calc(var(--i,0)*.9s + .3s) 1}
+.js .timeline li>*{opacity:0;transform:translateY(12px);transition:opacity .6s,transform .6s;transition-delay:calc(var(--i,0)*.9s + .5s)}
+.js .timeline.in li>*{opacity:1;transform:none}
+@keyframes ping{0%{opacity:.9;transform:scale(1)}100%{opacity:0;transform:scale(3.2)}}
+@media(max-width:700px){
+.js .timeline{padding-left:1.8rem}
+.js .timeline::before,.js .timeline::after{width:2px;height:auto;top:0;bottom:0;left:0;right:auto}
+.js .timeline::after{height:0;transition:height 3.6s linear .2s}
+.js .timeline.in::after{height:100%}
+.js .timeline li{padding-top:0}
+.js .timeline li::before,.js .timeline li::after{top:.4rem;left:calc(-1.8rem - 5px)}
+}
+@media(prefers-reduced-motion:reduce){
+.js .cols article,.cols article::before,.js .stack span,.js .pipe li,.js .pipe::before,.js .timeline li>*,.js .timeline::after,.js .timeline li::before,.slide img{transition:none!important}
+.js .timeline li::after,.slide img.kb{animation:none!important}}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+<nav><div class="wrap">
+  <strong><a href="#top">SK</a></strong>
+  <ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#experience">Experience</a></li><li><a href="#toolkit">Process</a></li><li><a href="#contact">Contact</a></li></ul>
+</div></nav>
+
+<header class="hero" id="top"><div class="wrap">
+  <div>
+    <p class="role">Video editor, colorist, sound engineer and AI content producer</p>
+    <h1>Shagun<br>Kaushik</h1>
+    <p class="lead">Five years of freelance editing for YouTube channels, brands and NGOs, now building AI-assisted content workflows that scale.</p>
+    <div class="btns">
+      <button class="btn" data-src="https://drive.google.com/file/d/19y39d7UoP4Mgc2CTGl30x5RIpMkYGKIv/preview">Watch showreel</button>
+      <a class="btn ghost" href="#work">See selected work</a>
+    </div>
+  </div>
+  <button class="reel" data-src="https://drive.google.com/file/d/19y39d7UoP4Mgc2CTGl30x5RIpMkYGKIv/preview" aria-label="Play showreel"><div><div class="play"></div><span> Showreel</span></div></button>
+</div>
+<div class="wrap"><div class="stats" style="grid-column:1/-1">
+  <div><b>5+</b><span>Years freelancing</span></div>
+  <div><b>4</b><span>YouTube channels edited</span></div>
+  <div><b>6</b><span>Disciplines under one roof</span></div>
+  <div><b>Global</b><span>Remote, available worldwide</span></div>
+</div></div></header>
+
+<main>
+<section id="work"><div class="wrap">
+  <div class="head"><h2>Selected work</h2><p class="lead">Long-running channel work, from children's content to educational and lifestyle series. The reel cycles through my work one video at a time. Hover to pause and read what I did, click to watch.</p></div>
+  <div class="split"><div>
+    <div class="stage" id="stage">
+      <button class="slide" id="slide" aria-label="Play this video"><img alt="" id="ia"><img alt="" id="ib"><i></i></button>
+      <span class="tag" id="tag"></span><span class="count" id="count"></span>
+      <button class="nav prev" id="prev" aria-label="Previous video">&#8249;</button>
+      <button class="nav next" id="next" aria-label="Next video">&#8250;</button>
+      <button class="nav pp" id="pp" aria-label="Pause slideshow">&#10074;&#10074;</button>
+      <span class="bar"><b id="bar"></b></span>
+    </div>
+    <div class="strip" id="strip"></div>
+  </div><aside class="panel" id="panel" aria-live="polite"></aside></div>
+  <div class="also">
+    <h3 style="font-size:1.8rem">Also worked with</h3>
+    <ul><li>Blinkit (freelance co-editor)</li><li>T-Series documentaries</li><li>Smile India Trust and NGO work</li><li>Podcast / Baithak</li><li>Freelance AI ads and content</li></ul>
+  </div>
+</div></section>
+
+<section id="services"><div class="wrap">
+  <div class="head"><h2>What I do</h2><p class="lead">End-to-end creative and post-production, powered by storytelling and AI.</p></div>
+  <div class="cols">
+    <article><h3>Video editing</h3><p>Narrative-driven edits that engage, inform and convert.</p></article>
+    <article><h3>Motion design</h3><p>Kinetic visuals and graphics that elevate your story.</p></article>
+    <article><h3>Color grading</h3><p>Cinematic color and tone that set the right mood.</p></article>
+    <article><h3>Audio refinement</h3><p>Clean audio, sound design and music that enhance impact.</p></article>
+    <article><h3>AI content production</h3><p>AI-powered workflows to ideate, create and scale content.</p></article>
+    <article><h3>Content strategy</h3><p>Concept, structure and planning for story-led content.</p></article>
+  </div>
+</div></section>
+
+<section id="experience"><div class="wrap">
+  <div class="head"><h2>Experience</h2><p class="lead">From the first cut to intelligent content creation.</p></div>
+  <ol class="timeline">
+    <li><time>2018</time><h3>Foundation</h3><p>Began in video editing and storytelling.</p></li>
+    <li><time>2020</time><h3>Growth</h3><p>Worked with diverse brands and creators across industries.</p></li>
+    <li><time>2022</time><h3>Expansion</h3><p>Integrated AI tools to raise speed, creativity and scale.</p></li>
+    <li><time>Present</time><h3>Focused on impact</h3><p>Building intelligent content systems that connect, engage and deliver results.</p></li>
+  </ol>
+  <p class="lead" style="margin-top:3rem">Education: Bachelor of Arts in Mass Communication.</p>
+</div></section>
+
+<section id="toolkit"><div class="wrap">
+  <div class="head"><h2>Tools &amp; process</h2><p class="lead">Five steps from idea to published video.</p></div>
+  <div class="stack"><span>Ai Workflow</span><span>DaVinci Resolve</span><span>After Effects</span><span>Adobe Premier Pro</span><span>Photoshop</span></div>
+  <ol class="pipe">
+    <li><h3>Ideate</h3><p>Research, concepts and story mapping.</p></li>
+    <li><h3>Prepare</h3><p>Scripting, shot planning, assets.</p></li>
+    <li><h3>Create</h3><p>Capture, generate and produce.</p></li>
+    <li><h3>Edit</h3><p>Cut, grade, design and refine.</p></li>
+    <li><h3>Deliver</h3><p>Export, optimize and publish.</p></li>
+  </ol>
+</div></section>
+
+<section id="contact" class="contact"><div class="wrap">
+  <h2>Let's work together</h2>
+  <p class="lead">Tell me about your project and I'll reply with how I'd approach it.</p>
+  <dl>
+    <div><dt>Email</dt><dd><a href="mailto:ipadproscary7@gmail.com">ipadproscary7@gmail.com</a></dd></div>
+    <div><dt>Phone</dt><dd><a href="tel:+919729940919" style="border:0">+91 9729940919</a></dd></div>
+    <div><dt>Location</dt><dd>Available worldwide</dd></div>
+  </dl>
+  <a class="btn" href="mailto:ipadproscary7@gmail.com?subject=Project%20inquiry">Start a project</a>
+</div></section>
+</main>
+<footer><div class="wrap">&copy; <span id="y">2026</span> Shagun Kaushik</div></footer>
+
+<dialog id="m"><button class="close" aria-label="Close video">Close</button><iframe title="Video player" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></dialog>
+
+<script>
+const DATA=[
+ {n:"Engineer On Road",h:"engineeronroad",ids:["INbNbbEcYZ4","tIAHM1UJ-9Y","jWf5XhRHL1I","CiY5kYAqfpA"]},
+ {n:"Miku's Toddler Rhymes",t:"Children's rhymes",h:"mikustoddlerrhymes",ids:["rjThNNXgxAw","C2S_53daric","bDI_kyxVqW0","svJF4iuU40Q","YqDyU2ciLu0"]},
+ {n:"Vikkrant Singh",t:"Vastu, numerology, neurology",h:"vikkrantsiingh",ids:["e_XK4AqK8XE","keCAt9aRyo0"]},
+ {n:"Apna Apna Vastu",t:"Vastu",h:"apnaapnavastu",ids:["f4EAJVZZpWQ","1GaCoU8qG8M"]}
+];
+const m=document.getElementById("m"),f=m.querySelector("iframe");
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-src]");
+  if(b){f.src=b.dataset.src;m.showModal();}
+  else if(e.target===m||e.target.closest(".close"))m.close();
+});
+m.addEventListener("close",()=>{f.src="about:blank"});
+/* EDIT: describe what you did on each video. Key = YouTube video ID, value = list of short lines.
+   Videos without notes show channel-level notes (c.did in DATA) or a plain default. */
+const NOTES={
+  // "INbNbbEcYZ4":["Cut the story from raw footage","Color graded for a consistent look","Cleaned and mixed the audio"],
+};
+const $=x=>document.getElementById(x);
+const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+const ALL=[];DATA.forEach(c=>c.ids.forEach((id,i)=>ALL.push({id,c,i})));
+const panel=$("panel"),stage=$("stage"),slide=$("slide"),imgs=[$("ia"),$("ib")],bar=$("bar"),strip=$("strip"),pp=$("pp");
+const DUR=4800,titles={};
+let idx=-1,flip=0,elapsed=0,hover=false,manual=false,visible=false;
+const yt=id=>`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+function setImg(img,id){
+  img.dataset.fb="";
+  img.onload=()=>{if(img.naturalWidth<200&&!img.dataset.fb){img.dataset.fb="1";img.src=`https://img.youtube.com/vi/${id}/hqdefault.jpg`}};
+  img.src=`https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
+}
+function add(p,t,cls,txt){const x=document.createElement(t);if(cls)x.className=cls;if(txt!=null)x.textContent=txt;p.appendChild(x);return x}
+function render(it){
+  const {id,c,i}=it,notes=NOTES[id]||c.did||[];
+  panel.textContent="";
+  add(panel,"small","",c.n);
+  const h=add(panel,"h3","",titles[id]||`${c.n}, video ${i+1}`);
+  add(panel,"p","cat",c.t||"YouTube channel");
+  add(panel,"h4","","What I did");
+  const ul=add(panel,"ul");
+  (notes.length?notes:["Edited by Shagun Kaushik."]).forEach(n=>add(ul,"li","",n));
+  const row=add(panel,"div","btns");
+  add(row,"button","btn","Watch video").dataset.src=yt(id);
+  const a=add(row,"a","btn ghost","Visit channel");a.href=`https://youtube.com/@${c.h}`;a.target="_blank";a.rel="noopener";
+  if(!titles[id])fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`).then(r=>r.json()).then(d=>{if(d.title){titles[id]=d.title;if(ALL[idx].id===id)h.textContent=d.title}}).catch(()=>{});
+}
+function go(n){
+  idx=(n+ALL.length)%ALL.length;elapsed=0;
+  const it=ALL[idx],cu=imgs[flip],nx=imgs[flip^1];flip^=1;
+  setImg(nx,it.id);nx.classList.remove("kb");void nx.offsetWidth;nx.classList.add("show","kb");
+  cu.classList.remove("show");setTimeout(()=>{if(!cu.classList.contains("show"))cu.classList.remove("kb")},1000);
+  slide.dataset.src=yt(it.id);
+  $("tag").textContent=it.c.n;
+  $("count").textContent=String(idx+1).padStart(2,"0")+" / "+String(ALL.length).padStart(2,"0");
+  [...strip.children].forEach((t,k)=>t.classList.toggle("on",k===idx));
+  const on=strip.children[idx];strip.scrollTo({left:on.offsetLeft-strip.clientWidth/2+on.clientWidth/2,behavior:reduce?"auto":"smooth"});
+  render(it);
+}
+ALL.forEach((it,k)=>{
+  const b=document.createElement("button");b.className="mini";b.setAttribute("aria-label",`${it.c.n} video ${it.i+1}`);
+  const im=add(b,"img");im.loading="lazy";im.alt="";im.src=`https://img.youtube.com/vi/${it.id}/mqdefault.jpg`;
+  b.addEventListener("click",()=>go(k));strip.appendChild(b);
+});
+$("prev").addEventListener("click",()=>go(idx-1));
+$("next").addEventListener("click",()=>go(idx+1));
+pp.addEventListener("click",()=>{manual=!manual;pp.innerHTML=manual?"&#9654;":"&#10074;&#10074;";pp.setAttribute("aria-label",manual?"Resume slideshow":"Pause slideshow")});
+[stage,strip,panel].forEach(x=>{x.addEventListener("pointerenter",()=>hover=true);x.addEventListener("pointerleave",()=>hover=false)});
+new IntersectionObserver(e=>{visible=e[0].isIntersecting},{threshold:.3}).observe(stage);
+let last=performance.now();
+function tick(t){
+  const dt=Math.min(t-last,100);last=t;
+  if(!reduce&&visible&&!hover&&!manual&&!document.hidden&&!m.open){elapsed+=dt;if(elapsed>=DUR)go(idx+1)}
+  bar.style.width=(elapsed/DUR*100)+"%";requestAnimationFrame(tick);
+}
+if(reduce){manual=true;pp.innerHTML="&#9654;";pp.setAttribute("aria-label","Start slideshow")}
+go(0);requestAnimationFrame(tick);
+
+/* scroll-triggered animations */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".cols,.stack,.pipe,.timeline").forEach(el=>{
+  [...el.children].forEach((c,i)=>c.style.setProperty("--i",i));
+  reduce?el.classList.add("in"):io.observe(el);
+});
+document.getElementById("y").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
