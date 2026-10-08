@@ -171,10 +171,17 @@ dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
 .reelwrap figcaption{margin-top:.8rem;color:var(--mute);font-size:.82rem}
 @media(max-width:820px){.reelwrap{width:min(100%,300px)}}
 @media(prefers-reduced-motion:reduce){.snd.pulse{animation:none}}
+
+/* film-strip vine background */
+.vine{position:absolute;left:0;top:0;z-index:-1;pointer-events:none}
+.vine .reel{transform-box:fill-box;transform-origin:center;animation:spin 90s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.vine .reel{animation:none}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
+<svg class="vine" id="vine" aria-hidden="true"></svg>
 <nav><div class="wrap">
   <strong><a href="#top">SK</a></strong>
   <ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#experience">Experience</a></li><li><a href="#toolkit">Process</a></li><li><a href="#contact">Contact</a></li></ul>
@@ -391,6 +398,41 @@ document.querySelectorAll(".cols,.stack,.pipe,.timeline").forEach(el=>{
   [...el.children].forEach((c,i)=>c.style.setProperty("--i",i));
   reduce?el.classList.add("in"):io.observe(el);
 });
+
+/* film-strip vine background: winds down the page and grows as you scroll */
+const vine=$("vine"),NS="http://www.w3.org/2000/svg";
+const mk=(t,a,p)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);(p||vine).appendChild(e);return e};
+let vL=1,vH=0,vW=0,vMask=null;
+function buildVine(){
+  vine.style.height="0";
+  const W=document.documentElement.clientWidth,H=document.documentElement.scrollHeight;
+  vine.style.height="";
+  if(W===vW&&Math.abs(H-vH)<4)return;
+  vW=W;vH=H;
+  vine.textContent="";vine.setAttribute("width",W);vine.setAttribute("height",H);vine.setAttribute("viewBox",`0 0 ${W} ${H}`);
+  const xl=Math.max(34,W*.07),xr=W-xl,n=Math.max(2,Math.round(H/620)),seg=(H-20)/n;
+  let d=`M${xr} 60`,y=60,right=true;
+  for(let i=0;i<n;i++){const a=right?xr:xl,b=right?xl:xr;d+=`C${a} ${y+seg*.5} ${b} ${y+seg*.5} ${b} ${y+seg}`;y+=seg;right=!right}
+  const defs=mk("defs",{}),mask=mk("mask",{id:"vm",maskUnits:"userSpaceOnUse",x:0,y:0,width:W,height:H},defs);
+  vMask=mk("path",{d,fill:"none",stroke:"#fff","stroke-width":120},mask);
+  vL=vMask.getTotalLength();vMask.style.strokeDasharray=vL;vMask.style.transition="stroke-dashoffset .35s linear";
+  const g=mk("g",{mask:"url(#vm)",opacity:W<700?.35:.6}),P=(w,c,da)=>{const o={d,fill:"none",stroke:c,"stroke-width":w};if(da)o["stroke-dasharray"]=da;mk("path",o,g)};
+  P(50,"rgba(232,146,74,.14)");P(44,"#222");P(38,"#0a0a0a","7 12");P(24,"#222");P(24,"#0a0a0a","1.5 98");
+  const gp=mk("g",{transform:`translate(${xr} 60)`,opacity:.7}),r=mk("g",{class:"reel"},gp);
+  mk("circle",{r:84,fill:"#222",stroke:"rgba(232,146,74,.35)","stroke-width":2},r);
+  for(let k=0;k<6;k++){const a=k*Math.PI/3;mk("circle",{cx:Math.cos(a)*48,cy:Math.sin(a)*48,r:19,fill:"#0a0a0a"},r)}
+  mk("circle",{r:10,fill:"#0a0a0a"},r);
+}
+function updVine(){
+  if(!vMask)return;
+  const p=reduce?1:Math.min(1,(scrollY+innerHeight*.9)/vH);
+  vMask.style.strokeDashoffset=vL*(1-p);
+}
+let vq=false;
+addEventListener("scroll",()=>{if(!vq){vq=true;requestAnimationFrame(()=>{vq=false;updVine()})}},{passive:true});
+new ResizeObserver(()=>{buildVine();updVine()}).observe(document.body);
+addEventListener("load",()=>{buildVine();updVine()});
+buildVine();updVine();
 document.getElementById("y").textContent=new Date().getFullYear();
 </script>
 </body>
