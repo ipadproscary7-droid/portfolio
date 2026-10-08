@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Shagun Kaushik | Video Editor & AI Content Producer</title>
 <meta name="description" content="Shagun Kaushik: video editor, colorist, sound engineer and AI content producer. Five years of freelance work for YouTube channels, brands and NGOs.">
@@ -158,6 +159,18 @@ dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
 @media(prefers-reduced-motion:reduce){
 .js .cols article,.cols article::before,.js .stack span,.js .pipe li,.js .pipe::before,.js .timeline li>*,.js .timeline::after,.js .timeline li::before,.slide img{transition:none!important}
 .js .timeline li::after,.slide img.kb{animation:none!important}}
+
+/* showreel player */
+.reelwrap{justify-self:center;width:min(100%,340px);text-align:center}
+.screen{position:relative;border:1px solid var(--line);border-radius:4px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.screen video{display:block;width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.snd{position:absolute;z-index:2;left:50%;bottom:.9rem;transform:translateX(-50%);white-space:nowrap;background:rgba(10,10,10,.78);border:1px solid #666;border-radius:100px;padding:.45rem 1.1rem;font-size:.85rem;font-weight:500;backdrop-filter:blur(4px);transition:.2s}
+.snd:hover{background:var(--accent);color:#111;border-color:var(--accent)}
+.snd.pulse{animation:glow 1.8s infinite}
+@keyframes glow{0%{box-shadow:0 0 0 0 rgba(232,146,74,.6)}100%{box-shadow:0 0 0 14px rgba(232,146,74,0)}}
+.reelwrap figcaption{margin-top:.8rem;color:var(--mute);font-size:.82rem}
+@media(max-width:820px){.reelwrap{width:min(100%,300px)}}
+@media(prefers-reduced-motion:reduce){.snd.pulse{animation:none}}
 </style>
 <script>document.documentElement.classList.add("js")</script>
 </head>
@@ -167,17 +180,22 @@ dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
   <ul><li><a href="#work">Work</a></li><li><a href="#services">Services</a></li><li><a href="#experience">Experience</a></li><li><a href="#toolkit">Process</a></li><li><a href="#contact">Contact</a></li></ul>
 </div></nav>
 
-<header class="hero" id="top"><div class="wrap">
+<header class="hero" id="top">
+<div class="wrap">
   <div>
     <p class="role">Video editor, colorist, sound engineer and AI content producer</p>
     <h1>Shagun<br>Kaushik</h1>
     <p class="lead">Five years of freelance editing for YouTube channels, brands and NGOs, now building AI-assisted content workflows that scale.</p>
     <div class="btns">
-      <button class="btn" data-src="https://drive.google.com/file/d/19y39d7UoP4Mgc2CTGl30x5RIpMkYGKIv/preview">Watch showreel</button>
+      <button class="btn" id="watch">Watch showreel</button>
       <a class="btn ghost" href="#work">See selected work</a>
     </div>
   </div>
-  <button class="reel" data-src="https://drive.google.com/file/d/19y39d7UoP4Mgc2CTGl30x5RIpMkYGKIv/preview" aria-label="Play showreel"><div><div class="play"></div><span> Showreel</span></div></button>
+  <figure class="reelwrap">
+    <div class="screen"><video id="reel" src="assets/showreel.mp4" poster="assets/poster.jpg" playsinline loop preload="auto"></video>
+      <button class="snd" id="snd" aria-pressed="false">Tap for sound</button></div>
+    <figcaption>Freelance showreel &middot; 0:33</figcaption>
+  </figure>
 </div>
 <div class="wrap"><div class="stats" style="grid-column:1/-1">
   <div><b>5+</b><span>Years freelancing</span></div>
@@ -231,7 +249,7 @@ dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
 
 <section id="toolkit"><div class="wrap">
   <div class="head"><h2>Tools &amp; process</h2><p class="lead">Five steps from idea to published video.</p></div>
-  <div class="stack"><span>Ai Workflow</span><span>DaVinci Resolve</span><span>After Effects</span><span>Adobe Premier Pro</span><span>Photoshop</span></div>
+  <div class="stack"><span>Adobe Premiere Pro</span><span>After Effects</span><span>DaVinci Resolve</span><span>Photoshop</span><span>Runway</span><span>ChatGPT</span></div>
   <ol class="pipe">
     <li><h3>Ideate</h3><p>Research, concepts and story mapping.</p></li>
     <li><h3>Prepare</h3><p>Scripting, shot planning, assets.</p></li>
@@ -245,16 +263,16 @@ dialog iframe{display:block;width:100%;aspect-ratio:16/9;border:0}
   <h2>Let's work together</h2>
   <p class="lead">Tell me about your project and I'll reply with how I'd approach it.</p>
   <dl>
-    <div><dt>Email</dt><dd><a href="mailto:ipadproscary7@gmail.com">ipadproscary7@gmail.com</a></dd></div>
-    <div><dt>Phone</dt><dd><a href="tel:+919729940919" style="border:0">+91 9729940919</a></dd></div>
+    <div><dt>Email</dt><dd><a href="mailto:hello@shagunkaushik.com">hello@shagunkaushik.com</a></dd></div>
+    <div><dt>Phone</dt><dd><a href="tel:+919876543210" style="border:0">+91 98765 43210</a></dd></div>
     <div><dt>Location</dt><dd>Available worldwide</dd></div>
   </dl>
-  <a class="btn" href="mailto:ipadproscary7@gmail.com?subject=Project%20inquiry">Start a project</a>
+  <a class="btn" href="mailto:hello@shagunkaushik.com?subject=Project%20inquiry">Start a project</a>
 </div></section>
 </main>
 <footer><div class="wrap">&copy; <span id="y">2026</span> Shagun Kaushik</div></footer>
 
-<dialog id="m"><button class="close" aria-label="Close video">Close</button><iframe title="Video player" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe></dialog>
+<dialog id="m"><button class="close" aria-label="Close video">Close</button><iframe title="Video player" allow="autoplay; encrypted-media; fullscreen" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe><a id="yl" href="#" target="_blank" rel="noopener" style="display:block;padding:.7rem 1rem;font-size:.9rem;color:var(--mute);text-decoration:none">Video not loading? Open it in a new tab</a></dialog>
 
 <script>
 const DATA=[
@@ -266,7 +284,7 @@ const DATA=[
 const m=document.getElementById("m"),f=m.querySelector("iframe");
 document.addEventListener("click",e=>{
   const b=e.target.closest("[data-src]");
-  if(b){f.src=b.dataset.src;m.showModal();}
+  if(b){const u=b.dataset.src;f.src=u;rv.pause();const k=u.match(/embed\/([^?]+)/);$("yl").href=k?"https://youtu.be/"+k[1]:u.replace("/preview","/view");m.showModal();}
   else if(e.target===m||e.target.closest(".close"))m.close();
 });
 m.addEventListener("close",()=>{f.src="about:blank"});
@@ -332,6 +350,40 @@ function tick(t){
 }
 if(reduce){manual=true;pp.innerHTML="&#9654;";pp.setAttribute("aria-label","Start slideshow")}
 go(0);requestAnimationFrame(tick);
+
+/* showreel: autoplay when visible, sound where the browser allows it */
+const rv=$("reel"),snd=$("snd");
+let userMuted=false,seen=false;
+function label(){
+  snd.textContent=rv.paused?"Play showreel":rv.muted?"Tap for sound":"Sound on";
+  snd.setAttribute("aria-pressed",String(!rv.paused&&!rv.muted));
+  snd.classList.toggle("pulse",!rv.paused&&rv.muted);
+}
+async function tryPlay(){
+  rv.muted=userMuted;
+  try{await rv.play()}catch(e){rv.muted=true;try{await rv.play()}catch(_){}}
+  label();
+}
+new IntersectionObserver(e=>{
+  seen=e[0].isIntersecting;
+  if(seen){if(!reduce&&!m.open)tryPlay()}else{rv.pause();label()}
+},{threshold:.5}).observe(rv);
+function unlock(ev){
+  if(ev.target.closest&&ev.target.closest("#snd,#watch"))return;
+  if(!rv.paused&&rv.muted&&!userMuted){rv.muted=false;label()}
+  ["pointerdown","keydown"].forEach(t=>removeEventListener(t,unlock,true));
+}
+["pointerdown","keydown"].forEach(t=>addEventListener(t,unlock,true));
+snd.addEventListener("click",()=>{
+  if(rv.paused){userMuted=false;rv.muted=false;rv.play().catch(()=>{rv.muted=true;rv.play()}).finally(label)}
+  else{rv.muted=!rv.muted;userMuted=rv.muted;label()}
+});
+$("watch").addEventListener("click",()=>{
+  userMuted=false;rv.currentTime=0;rv.muted=false;
+  rv.play().catch(()=>{rv.muted=true;rv.play()}).finally(label);
+  rv.scrollIntoView({behavior:reduce?"auto":"smooth",block:"center"});
+});
+["play","pause","volumechange"].forEach(t=>rv.addEventListener(t,label));
 
 /* scroll-triggered animations */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
